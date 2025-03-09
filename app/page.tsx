@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { useTheme } from "next-themes"
 import {
   Shield,
   Clock,
@@ -14,14 +15,23 @@ import {
   ArrowRight,
   Menu,
   X,
+  Sun,
+  Moon,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function LandingPage() {
+  const [mounted, setMounted] = useState(false)
+
+  // useEffect only runs on the client, so we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -46,20 +56,22 @@ export default function LandingPage() {
             </Link>
           </nav>
 
-          <MobileNav />
-
-          <div className="hidden md:flex gap-4">
-            <Button variant="outline" size="sm">
-              Contact Us
-            </Button>
-            <Button size="sm">Try Demo</Button>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <MobileNav />
+            <div className="hidden md:flex gap-4">
+              <Button variant="outline" size="sm">
+                Contact Us
+              </Button>
+              <Button size="sm">Try Demo</Button>
+            </div>
           </div>
         </div>
       </header>
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-20 md:py-32">
+        <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950 py-20 md:py-32">
           <div className="container flex flex-col md:flex-row items-center gap-8 md:gap-16">
             <div className="flex-1 space-y-6 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -89,11 +101,11 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
         </section>
 
         {/* Problem Statement */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white dark:bg-gray-950">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -147,7 +159,7 @@ export default function LandingPage() {
         </section>
 
         {/* Solution Overview */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-gray-950 dark:to-gray-900">
           <div className="container text-center">
             <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium mb-6">
               Our Solution
@@ -170,7 +182,7 @@ export default function LandingPage() {
         </section>
 
         {/* Features */}
-        <section id="features" className="py-16 md:py-24 bg-white">
+        <section id="features" className="py-16 md:py-24 bg-white dark:bg-gray-950">
           <div className="container">
             <div className="text-center mb-16">
               <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium mb-6">
@@ -237,7 +249,7 @@ export default function LandingPage() {
         </section>
 
         {/* Benefits */}
-        <section id="benefits" className="py-16 md:py-24 bg-blue-50">
+        <section id="benefits" className="py-16 md:py-24 bg-blue-50 dark:bg-gray-900">
           <div className="container">
             <div className="text-center mb-16">
               <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium mb-6">
@@ -257,8 +269,8 @@ export default function LandingPage() {
               <TabsContent value="voters" className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-green-100 p-2 mt-1">
-                      <Clock className="h-5 w-5 text-green-600" />
+                    <div className="rounded-full bg-green-100 dark:bg-green-900 p-2 mt-1">
+                      <Clock className="h-5 w-5 text-green-600 dark:text-green-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Reduced Waiting Times</h3>
@@ -269,8 +281,8 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-green-100 p-2 mt-1">
-                      <Shield className="h-5 w-5 text-green-600" />
+                    <div className="rounded-full bg-green-100 dark:bg-green-900 p-2 mt-1">
+                      <Shield className="h-5 w-5 text-green-600 dark:text-green-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Enhanced Security</h3>
@@ -281,8 +293,8 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-green-100 p-2 mt-1">
-                      <Users className="h-5 w-5 text-green-600" />
+                    <div className="rounded-full bg-green-100 dark:bg-green-900 p-2 mt-1">
+                      <Users className="h-5 w-5 text-green-600 dark:text-green-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Improved Accessibility</h3>
@@ -293,8 +305,8 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-green-100 p-2 mt-1">
-                      <CheckCircle className="h-5 w-5 text-green-600" />
+                    <div className="rounded-full bg-green-100 dark:bg-green-900 p-2 mt-1">
+                      <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Increased Confidence</h3>
@@ -309,8 +321,8 @@ export default function LandingPage() {
               <TabsContent value="officials" className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-blue-100 p-2 mt-1">
-                      <BarChart className="h-5 w-5 text-blue-600" />
+                    <div className="rounded-full bg-blue-100 dark:bg-blue-900 p-2 mt-1">
+                      <BarChart className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Real-Time Analytics</h3>
@@ -321,8 +333,8 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-blue-100 p-2 mt-1">
-                      <Lock className="h-5 w-5 text-blue-600" />
+                    <div className="rounded-full bg-blue-100 dark:bg-blue-900 p-2 mt-1">
+                      <Lock className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Fraud Prevention</h3>
@@ -333,8 +345,8 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-blue-100 p-2 mt-1">
-                      <Clock className="h-5 w-5 text-blue-600" />
+                    <div className="rounded-full bg-blue-100 dark:bg-blue-900 p-2 mt-1">
+                      <Clock className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Operational Efficiency</h3>
@@ -345,8 +357,8 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <div className="rounded-full bg-blue-100 p-2 mt-1">
-                      <CheckCircle className="h-5 w-5 text-blue-600" />
+                    <div className="rounded-full bg-blue-100 dark:bg-blue-900 p-2 mt-1">
+                      <CheckCircle className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium mb-2">Auditable Records</h3>
@@ -362,7 +374,7 @@ export default function LandingPage() {
         </section>
 
         {/* How It Works */}
-        <section id="how-it-works" className="py-16 md:py-24 bg-white">
+        <section id="how-it-works" className="py-16 md:py-24 bg-white dark:bg-gray-950">
           <div className="container">
             <div className="text-center mb-16">
               <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium mb-6">
@@ -384,7 +396,7 @@ export default function LandingPage() {
                   {/* Step 1 */}
                   <div className="relative flex flex-col md:flex-row md:items-center md:justify-between md:space-x-4">
                     <div className="mb-6 flex items-center space-x-4 md:mb-0 md:justify-end md:space-x-reverse md:space-x-8">
-                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
                         <span className="text-xl font-bold">1</span>
                       </div>
                       <div className="md:text-right">
@@ -408,7 +420,7 @@ export default function LandingPage() {
                   {/* Step 2 */}
                   <div className="relative flex flex-col md:flex-row-reverse md:items-center md:justify-between md:space-x-reverse md:space-x-4">
                     <div className="mb-6 flex items-center space-x-4 md:mb-0 md:space-x-8">
-                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
                         <span className="text-xl font-bold">2</span>
                       </div>
                       <div>
@@ -432,7 +444,7 @@ export default function LandingPage() {
                   {/* Step 3 */}
                   <div className="relative flex flex-col md:flex-row md:items-center md:justify-between md:space-x-4">
                     <div className="mb-6 flex items-center space-x-4 md:mb-0 md:justify-end md:space-x-reverse md:space-x-8">
-                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
                         <span className="text-xl font-bold">3</span>
                       </div>
                       <div className="md:text-right">
@@ -456,7 +468,7 @@ export default function LandingPage() {
                   {/* Step 4 */}
                   <div className="relative flex flex-col md:flex-row-reverse md:items-center md:justify-between md:space-x-reverse md:space-x-4">
                     <div className="mb-6 flex items-center space-x-4 md:mb-0 md:space-x-8">
-                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+                      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
                         <span className="text-xl font-bold">4</span>
                       </div>
                       <div>
@@ -483,7 +495,10 @@ export default function LandingPage() {
         </section>
 
         {/* Testimonials */}
-        <section id="testimonials" className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white">
+        <section
+          id="testimonials"
+          className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950"
+        >
           <div className="container">
             <div className="text-center mb-16">
               <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium mb-6">
@@ -613,7 +628,7 @@ export default function LandingPage() {
         </section>
 
         {/* Case Study */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white dark:bg-gray-950">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -896,3 +911,29 @@ function MobileNav() {
     </div>
   )
 }
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // useEffect only runs on the client, so we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <div className="w-9 h-9"></div> // Placeholder to prevent layout shift
+  }
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="Toggle theme"
+    >
+      {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+    </Button>
+  )
+}
+
