@@ -54,6 +54,9 @@ export default function LandingPage() {
             <Link href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
               Testimonials
             </Link>
+            <Link href="/verification" className="text-sm font-medium hover:text-primary transition-colors">
+              Verify Now
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -81,8 +84,10 @@ export default function LandingPage() {
                 Automated voter verification for faster, secure, and accessible elections.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button size="lg" className="gap-2">
-                  Try the Demo <ArrowRight className="h-4 w-4" />
+                <Button size="lg" className="gap-2" asChild>
+                  <Link href="/verification">
+                    Try the Demo <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button variant="outline" size="lg">
                   Learn More
@@ -598,8 +603,10 @@ export default function LandingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button size="lg" variant="secondary" className="gap-2">
-                Request a Demo <ArrowRight className="h-4 w-4" />
+              <Button size="lg" variant="secondary" className="gap-2" asChild>
+                <Link href="/verification">
+                  Request a Demo <ArrowRight className="h-4 w-4" />
+                </Link>
               </Button>
               <Button
                 size="lg"
@@ -897,6 +904,13 @@ function MobileNav() {
               onClick={() => setIsOpen(false)}
             >
               Testimonials
+            </Link>
+            <Link
+              href="/verification"
+              className="text-lg font-medium hover:text-primary transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Verify Now
             </Link>
 
             <div className="flex flex-col gap-4 mt-4">
