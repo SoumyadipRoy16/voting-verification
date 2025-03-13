@@ -54,7 +54,7 @@ export default function LandingPage() {
             <Link href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
               Testimonials
             </Link>
-            <Link href="/verification" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link href="/verify" className="text-sm font-medium hover:text-primary transition-colors">
               Verify Now
             </Link>
           </nav>
