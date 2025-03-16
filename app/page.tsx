@@ -54,19 +54,20 @@ export default function LandingPage() {
             <Link href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
               Testimonials
             </Link>
-            <Link href="/verify" className="text-sm font-medium hover:text-primary transition-colors">
-              Verify Now
-            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <MobileNav />
             <div className="hidden md:flex gap-4">
-              <Button variant="outline" size="sm">
-                Contact Us
-              </Button>
-              <Button size="sm">Try Demo</Button>
+              <Link href="/auth/login">
+                <Button variant="outline" size="sm">
+                  Login
+                </Button>
+              </Link>
+              <Link href="/auth/signup">
+                <Button size="sm">Sign Up</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -84,10 +85,8 @@ export default function LandingPage() {
                 Automated voter verification for faster, secure, and accessible elections.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button size="lg" className="gap-2" asChild>
-                  <Link href="/verification">
-                    Try the Demo <ArrowRight className="h-4 w-4" />
-                  </Link>
+                <Button size="lg" className="gap-2">
+                  Try the Demo <ArrowRight className="h-4 w-4" />
                 </Button>
                 <Button variant="outline" size="lg">
                   Learn More
@@ -603,10 +602,8 @@ export default function LandingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button size="lg" variant="secondary" className="gap-2" asChild>
-                <Link href="/verification">
-                  Request a Demo <ArrowRight className="h-4 w-4" />
-                </Link>
+              <Button size="lg" variant="secondary" className="gap-2">
+                Request a Demo <ArrowRight className="h-4 w-4" />
               </Button>
               <Button
                 size="lg"
@@ -875,7 +872,7 @@ function MobileNav() {
       </Button>
 
       {isOpen && (
-        <div className="fixed inset-0 top-16 z-50 bg-background p-6 animate-in slide-in-from-top-5">
+        <div className="fixed inset-0 top-16 z-50 bg-background/95 backdrop-blur-md p-6 animate-in slide-in-from-top-5">
           <nav className="flex flex-col gap-6">
             <Link
               href="#features"
@@ -905,19 +902,16 @@ function MobileNav() {
             >
               Testimonials
             </Link>
-            <Link
-              href="/verification"
-              className="text-lg font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Verify Now
-            </Link>
 
             <div className="flex flex-col gap-4 mt-4">
-              <Button variant="outline" onClick={() => setIsOpen(false)}>
-                Contact Us
-              </Button>
-              <Button onClick={() => setIsOpen(false)}>Try Demo</Button>
+              <Link href="/auth/login" onClick={() => setIsOpen(false)}>
+                <Button variant="outline" className="w-full">
+                  Login
+                </Button>
+              </Link>
+              <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
+                <Button className="w-full">Sign Up</Button>
+              </Link>
             </div>
           </nav>
         </div>

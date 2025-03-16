@@ -56,95 +56,98 @@ export default function LandingPage() {
               <Button size="sm" onClick={startVerification}>
                 Try Demo
               </Button>
-            </div><Button onClick={startVerification}>
-                Try Demo
-              </Button>
             </div>
+          </div>
         </div>
-  </header>
+      </header>
 
       <main className="flex-1">
-  ;<section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950 py-20 md:py-32">
-    <div className="container flex flex-col md:flex-row items-center gap-8 md:gap-16">
-      <div className="flex-1 space-y-6 text-center md:text-left">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-          Revolutionizing Voting with Faster, Secure Verification
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-[600px] mx-auto md:mx-0">
-          Automated voter verification for faster, secure, and accessible elections.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Button size="lg" className="gap-2" onClick={startVerification}>
-            Try the Demo <ArrowRight className="h-4 w-4" />
-          </Button>
-          <Button variant="outline" size="lg">
-            Learn More
-          </Button>
-        </div>
-      </div>
-      <div className="flex-1 relative">
-        <Image
-          src="/assets/Secure-voting-verification-illustration.png"
-          alt="Secure voting verification illustration"
-          width={600}
-          height={500}
-          className="rounded-lg shadow-lg"
-          priority
-        />
-      </div>
-    </div>
-
-    <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-  </section>
-  ;<section className="py-16 md:py-24 bg-white dark:bg-gray-950">
-    <div className="container">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium">
-            The Problem
+        <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950 py-20 md:py-32">
+          <div className="container flex flex-col md:flex-row items-center gap-8 md:gap-16">
+            <div className="flex-1 space-y-6 text-center md:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                Revolutionizing Voting with Faster, Secure Verification
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-[600px] mx-auto md:mx-0">
+                Automated voter verification for faster, secure, and accessible elections.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <Button size="lg" className="gap-2" onClick={startVerification}>
+                  Try the Demo <ArrowRight className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" size="lg">
+                  Learn More
+                </Button>
+              </div>
+            </div>
+            <div className="flex-1 relative">
+              <Image
+                src="/assets/Secure-voting-verification-illustration.png"
+                alt="Secure voting verification illustration"
+                width={600}
+                height={500}
+                className="rounded-lg shadow-lg"
+                priority
+              />
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Current Challenges in Voting Verification</h2>
-          <ul className="space-y-4">
-            <li className="flex gap-3">
-              <Clock className="h-6 w-6 text-red-500 flex-shrink-0" />
-              <div>
-                <p className="font-medium">Long Waiting Times</p>
-                <p className="text-muted-foreground">
-                  Voters often wait hours in line due to manual verification processes.
-                </p>
+
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-white dark:bg-gray-950">
+          <div className="container">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium">
+                  The Problem
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                  Current Challenges in Voting Verification
+                </h2>
+                <ul className="space-y-4">
+                  <li className="flex gap-3">
+                    <Clock className="h-6 w-6 text-red-500 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Long Waiting Times</p>
+                      <p className="text-muted-foreground">
+                        Voters often wait hours in line due to manual verification processes.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <Shield className="h-6 w-6 text-red-500 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Security Vulnerabilities</p>
+                      <p className="text-muted-foreground">
+                        Manual systems are prone to human error and potential fraud.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <Users className="h-6 w-6 text-red-500 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Accessibility Issues</p>
+                      <p className="text-muted-foreground">
+                        Current systems often create barriers for voters with disabilities.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
               </div>
-            </li>
-            <li className="flex gap-3">
-              <Shield className="h-6 w-6 text-red-500 flex-shrink-0" />
-              <div>
-                <p className="font-medium">Security Vulnerabilities</p>
-                <p className="text-muted-foreground">Manual systems are prone to human error and potential fraud.</p>
+              <div className="relative">
+                <Image
+                  src="/assets/Long-voting-lines-illustration.png"
+                  alt="Long voting lines illustration"
+                  width={500}
+                  height={400}
+                  className="rounded-lg shadow-lg"
+                />
               </div>
-            </li>
-            <li className="flex gap-3">
-              <Users className="h-6 w-6 text-red-500 flex-shrink-0" />
-              <div>
-                <p className="font-medium">Accessibility Issues</p>
-                <p className="text-muted-foreground">
-                  Current systems often create barriers for voters with disabilities.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div className="relative">
-          <Image
-            src="/assets/Long-voting-lines-illustration.png"
-            alt="Long voting lines illustration"
-            width={500}
-            height={400}
-            className="rounded-lg shadow-lg"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-  </main>
+            </div>
+          </div>
+        </section>
+      </main>
 
       <footer className="bg-muted py-12 border-t">
         <div className="container">
@@ -261,12 +264,8 @@ export default function LandingPage() {
             </div>
 
             <p className="text-xs text-muted-foreground">
-              &copy
-  new Date().getFullYear()
-  VoteVerify.All
-  rights
-  reserved.
-  </p>
+              &copy; {new Date().getFullYear()} VoteVerify. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
@@ -284,7 +283,7 @@ function MobileNav({ startVerification }: { startVerification: () => void }) {
       </Button>
 
       {isOpen && (
-        <div className="fixed inset-0 top-16 z-50 bg-background p-6 animate-in slide-in-from-top-5">
+        <div className="fixed inset-0 top-16 z-50 bg-background/95 backdrop-blur-md p-6 animate-in slide-in-from-top-5">
           <nav className="flex flex-col gap-6">
             <Link
               href="#features"
